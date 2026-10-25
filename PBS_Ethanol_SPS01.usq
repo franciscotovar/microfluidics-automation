@@ -1,0 +1,38 @@
+*SPS01_PBS = SPS 80 ul
+*SPS01_Ethanol = SPS 80 ul
+*4VM02 = 4VM
+*4AM01 = 4AM01
+
+; Original two-pump PBS/Ethanol sequencing program.
+; Valve changes and waste handling require operator verification.
+; Confirm syringe calibration and usable maximum volume before running.
+
+Setup:
+    log(on)
+
+Step1:
+    4VM02: SetValves(1, 3, 0, 0)
+    WaitDone()
+
+Step2:
+    SPS01_Ethanol: SetFlowRate(600 ul/min)
+    SPS01_Ethanol: MoveTo(90 ul)
+    SPS01_PBS: SetFlowRate(600 ul/min)
+    SPS01_PBS: MoveTo(90 ul)
+    WaitDone()
+
+Step3:
+    4VM02: SetValves(3, 1, 0, 0)
+    WaitDone()
+
+Step4:
+    SPS01_Ethanol: SetFlowRate(100 ul/min)
+    SPS01_Ethanol: MoveTo(1 ul)
+    SPS01_PBS: SetFlowRate(200 ul/min)
+    SPS01_PBS: MoveTo(1 ul)
+    WaitDone()
+
+    Loop Step1 50
+
+Finish:
+    log(off)
