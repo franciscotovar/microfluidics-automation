@@ -192,10 +192,10 @@ class DualXE1000:
 
         confirmation = input(
             "\nVerify physical connections. "
-            "Type YES to initialize both pumps: "
+            "Type y to initialize both pumps: "
         )
 
-        if confirmation != "YES":
+        if confirmation != "y":
             print("Cancelled.")
             return
 

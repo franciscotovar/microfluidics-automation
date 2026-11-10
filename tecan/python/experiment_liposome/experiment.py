@@ -2,7 +2,7 @@ from dual_xe1000 import DualXE1000
 
 ETHANOL_VOLUME_UL = 150
 ASPIRATION_FLOW = {"PBS": 1500, "Ethanol": 1500}
-DISPENSING_FLOW = {"PBS": 1500, "Ethanol": 500}
+DISPENSING_FLOW = {"PBS": 2000, "Ethanol": 1000}
 CYCLES = 2
 
 if __name__ == "__main__":
